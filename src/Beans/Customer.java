@@ -3,6 +3,8 @@ package Beans;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
+
 @Data
 @AllArgsConstructor
 public class Customer {
@@ -11,4 +13,5 @@ public class Customer {
     private String last_name;
     private String email;
     private String password;
+    private ArrayList<Coupon> coupons;
 }
