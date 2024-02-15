@@ -50,7 +50,6 @@ public class ConnectionPool {
             connections.removeAllElements();
         }
     }
-
     public void restoreConnection(Connection connection){
         synchronized (connections){
             connections.push(connection);
