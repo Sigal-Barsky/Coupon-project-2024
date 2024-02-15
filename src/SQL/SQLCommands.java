@@ -1,4 +1,4 @@
-package cls;
+package SQL;
 
 public class SQLCommands {
     /**-CREATE COMPANY TABLE-*/

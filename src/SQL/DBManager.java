@@ -1,4 +1,4 @@
-package cls;
+package SQL;
 
 public class DBManager {
     public static final String URL = "jdbc:mysql://localhost:3306";
