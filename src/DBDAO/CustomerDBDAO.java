@@ -1,18 +1,27 @@
 package DBDAO;
 
+import Beans.Company;
+import Beans.Coupon;
 import Beans.Customer;
 import Cls.DBUtils;
 import DAO.CustomerDAO;
 import SQL.SQLCompanyCommands;
+import SQL.SQLCustomerCommands;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CustomerDBDAO implements CustomerDAO {
     @Override
-    public Boolean isCustomerExist(String Email, String Password) {
-        return null;
+    public Boolean isCustomerExist(String Email, String Password) throws SQLException {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,Email);
+        params.put(2,Password);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.isCustomerExist, params);
+        return results.getBoolean(1);
     }
 
     @Override
@@ -20,8 +29,10 @@ public class CustomerDBDAO implements CustomerDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,customer.getFirst_name());
         params.put(2,customer.getLast_name());
-        if (DBUtils.runQuery(SQLCompanyCommands.addCompany, params)){
-            System.out.println("Company added successfully");
+        params.put(3,customer.getEmail());
+        params.put(4,customer.getPassword());
+        if (DBUtils.runQuery(SQLCustomerCommands.addCustomer, params)){
+            System.out.println("Customer added successfully");
         }
     }
 
@@ -32,16 +43,46 @@ public class CustomerDBDAO implements CustomerDAO {
 
     @Override
     public void deleteCustomer(Integer customerID) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1, customerID);
+        if (DBUtils.runQuery(SQLCustomerCommands.deleteCustomer, params)){
+            System.out.println("Customer deleted successfully");
+        }
     }
 
     @Override
-    public ArrayList<Customer> getAllCustomers() {
-        return null;
+    public ArrayList<Customer> getAllCustomers() throws SQLException {
+        ArrayList<Customer> myList = new ArrayList<>();
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.getAllCustomers);
+        while (results.next()){
+            int id = results.getInt(1);
+            String firstname = results.getString(2);
+            String lastname = results.getString(3);
+            String email = results.getString(4);
+            String password = results.getString(5);
+            ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+            myList.add(new Customer(id, firstname, lastname, email, password, coupons));
+        }
+        return myList;
     }
 
     @Override
-    public Customer getOneCustomer(Integer customerID) {
-        return null;
+    public Customer getOneCustomer(Integer customerID) throws SQLException {
+        Customer customer;
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,customerID);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.getOneCustomer,params);
+
+        int id = results.getInt(1);
+        String firstname = results.getString(2);
+        String lastname = results.getString(3);
+        String email = results.getString(4);
+        String password = results.getString(5);
+        ArrayList<Coupon> coupons = new ArrayList<Coupon>();;
+        customer = new Customer(id, firstname, lastname, email, password, coupons);
+
+        return customer;
     }
 }

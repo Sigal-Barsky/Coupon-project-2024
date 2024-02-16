@@ -14,9 +14,7 @@ public class SQLCompanyCommands {
 
     /**-SQL COMMAND TO: CHECK COMPANY EXISTS-*/
     public static final String isCompanyExist =
-            "SELECT COUNT(*) AS user " +
-                    "FROM companies " +
-                    "WHERE name=? AND password=?";
+            "SELECT count(*) FROM companies WHERE email=? AND password=?;";
 
     /**-SQL COMMAND TO: ADD COMPANY TO TABLE-*/
     public static final String addCompany =

@@ -12,8 +12,12 @@ import java.util.*;
 
 public class CompanyDBDAO implements CompanyDAO {
     @Override
-    public Boolean isCompanyExist(String Email, String Password) {
-        return null;
+    public Boolean isCompanyExist(String Email, String Password) throws SQLException {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,Email);
+        params.put(2,Password);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
+        return results.getBoolean(1);
     }
 
     @Override
@@ -21,6 +25,7 @@ public class CompanyDBDAO implements CompanyDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,company.getName());
         params.put(2,company.getEmail());
+        params.put(3,company.getPassword());
         if (DBUtils.runQuery(SQLCompanyCommands.addCompany, params)){
             System.out.println("Company added successfully");
         }
