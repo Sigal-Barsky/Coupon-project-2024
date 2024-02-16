@@ -12,4 +12,8 @@ public class SQLCustomerCommands {
                     "  PRIMARY KEY (`customer_id`)," +
                     "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE," +
                     "  UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE);";
+    public static final String addCustomer =
+            "INSERT INTO `" + DBManager.SQL_DB + "`.`customers`" +
+            " (`first_name`, `last_name`, `email`, `password`)" +
+            " VALUES (?, ?, ?, ?);";
 }

@@ -93,4 +93,18 @@ public class DBUtils {
             throw new RuntimeException(e);
         }
     }
+    public static ResultSet runQueryFroResult(String sql) {
+        Connection connection = null;
+
+        try {
+            connection = ConnectionPool.getInstance().getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            System.out.println(preparedStatement);
+            return preparedStatement.executeQuery();
+        } catch (InterruptedException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -2,6 +2,7 @@ package DAO;
 
 import Beans.Company;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CompanyDAO {
@@ -9,6 +10,6 @@ public interface CompanyDAO {
     void addCompany(Company company);
     void updateCompany(Company company);
     void deleteCompany(Integer companyID);
-    ArrayList<Company> getAllCompanies();
-    Company getOneCompany(Integer companyID);
+    ArrayList<Company> getAllCompanies() throws SQLException;
+    Company getOneCompany(Integer companyID) throws SQLException;
 }
