@@ -8,9 +8,9 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class Coupon {
-    private final Integer coupon_id;
-    private Integer company_id;
-    private Integer category_id;
+    private final Integer couponID;
+    private Integer companyID;
+    private Category categoryID;
     private String title;
     private String description;
     private LocalDate start_date;

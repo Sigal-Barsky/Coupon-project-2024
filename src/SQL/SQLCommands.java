@@ -12,6 +12,11 @@ public class SQLCommands {
             "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE," +
             "  UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE);";
 
+    public static final String isCompanyExist = "" +
+            "SELECT COUNT(*) AS user " +
+            "FROM companies " +
+            "WHERE name=? AND password=?";
+
     /**-CREATE CUSTOMER TABLE-*/
     public static final String CREATE_CUSTOMER_TABLE = "CREATE TABLE IF NOT EXISTS `" + DBManager.SQL_DB +
             "`.`customers` (" +

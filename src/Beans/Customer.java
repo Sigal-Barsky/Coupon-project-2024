@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Data
 @AllArgsConstructor
 public class Customer {
-    private final Integer costumer_id;
+    private final Integer costumerID;
     private String first_name;
     private String last_name;
     private String email;
@@ -17,7 +17,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer: " + costumer_id +
+        return "Customer: " + costumerID +
                 ", name: " + first_name +
                 " " + last_name +
                 ", email: " + email;

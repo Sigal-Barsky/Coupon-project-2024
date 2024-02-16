@@ -10,7 +10,7 @@ public class ConnectionPool {
     public static ConnectionPool instance=null;
     private final Stack<Connection> connections = new Stack<>();
     private ConnectionPool() {
-        System.out.println("We created new connection pool instance");
+        System.out.println("new connection pool instance created");
         try {
             openAllConnections();
         } catch (SQLException e) {
