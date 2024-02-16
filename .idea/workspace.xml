@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/Cls/DBUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCategoryCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCusvsCouCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coupons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Coupons.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Beans/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Beans/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Coupon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CouponDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CouponDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCommands.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,6 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
@@ -113,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708029692088</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <option name="closed" value="true" />
+      <created>1708092163775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708092163775</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
