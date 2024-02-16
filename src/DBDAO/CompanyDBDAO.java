@@ -1,10 +1,14 @@
 package DBDAO;
 
 import Beans.Company;
+import Cls.DBUtils;
 import DAO.CompanyDAO;
+import SQL.SQLCompanyCommands;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CompanyDBDAO implements CompanyDAO {
     @Override
@@ -14,7 +18,10 @@ public class CompanyDBDAO implements CompanyDAO {
 
     @Override
     public void addCompany(Company company) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,company.getName());
+        params.put(2,company.getEmail());
+        DBUtils.runQuery(SQLCompanyCommands.addCompany, params);
     }
 
     @Override

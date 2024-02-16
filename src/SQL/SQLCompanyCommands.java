@@ -16,4 +16,9 @@ public class SQLCompanyCommands {
             "SELECT COUNT(*) AS user " +
                     "FROM companies " +
                     "WHERE name=? AND password=?";
+
+    public static final String addCompany =
+            "INSERT INTO `coupon_db`.`companies`" +
+            " (`name`, `email`, `password`)" +
+            " VALUES ( ?, ?, ?);";
 }

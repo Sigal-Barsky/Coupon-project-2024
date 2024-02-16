@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/Cls/DBUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCategoryCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLCusvsCouCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CouponDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CouponDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCommands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +24,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Sigal-Barsky"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6a70a702-9629-4398-b325-9bf217bd2ed3" />
+        <option name="url" value="https://github.com/Sigal-Barsky/Coupon-project-2024.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -121,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708092163775</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update">
+      <option name="closed" value="true" />
+      <created>1708098058573</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708098058573</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
