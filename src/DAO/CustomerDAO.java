@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CustomerDAO {
+    void createCustomerTable();
+    void dropCustomerTable();
     Boolean isCustomerExist(String Email, String Password) throws SQLException;
     void addCustomer(Customer customer);
     void updateCustomer(Customer customer);

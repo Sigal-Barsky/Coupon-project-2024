@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update" />
+    <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Beans/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Beans/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Coupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cls/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cls/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CouponDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CouponDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCategoryCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCategoryCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +38,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Sigal-Barsky"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Sigal-Barsky&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -52,6 +69,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Program.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -66,6 +84,26 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cls.Program" />
+      <module name="Coupons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cls.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -139,7 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708099810781</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <option name="closed" value="true" />
+      <created>1708110795336</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708110795336</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1708112535241</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708112535241</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

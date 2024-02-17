@@ -8,4 +8,10 @@ public class SQLCategoryCommands {
                     "  `name` VARCHAR(45) NOT NULL," +
                     "  PRIMARY KEY (`category_id`)," +
                     "  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE);";
+
+    public static final String addCategory =
+            "INSERT INTO `" + DBManager.SQL_DB + "`.`categories` (`name`) VALUES (?);";
+
+    public static final String DROP_CATEGORY_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`categories`;";
+
 }

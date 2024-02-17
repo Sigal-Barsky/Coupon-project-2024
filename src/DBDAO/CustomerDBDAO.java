@@ -1,6 +1,5 @@
 package DBDAO;
 
-import Beans.Company;
 import Beans.Coupon;
 import Beans.Customer;
 import Cls.DBUtils;
@@ -10,11 +9,25 @@ import SQL.SQLCustomerCommands;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CustomerDBDAO implements CustomerDAO {
+    @Override
+    public void createCustomerTable() {
+        if (DBUtils.runQuery(SQLCustomerCommands.CREATE_CUSTOMER_TABLE)) {
+            System.out.println("Customer table created");
+        } else {
+            System.out.println("Error!");
+        }
+    }
+    public void dropCustomerTable() {
+        if (DBUtils.runQuery(SQLCustomerCommands.DROP_CUSTOMER_TABLE)) {
+            System.out.println("Customer table dropped");
+        } else {
+            System.out.println("Error!");
+        }
+    }
+
     @Override
     public Boolean isCustomerExist(String Email, String Password) throws SQLException {
         Map<Integer,Object> params = new HashMap<>();

@@ -11,6 +11,20 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class CompanyDBDAO implements CompanyDAO {
+    public void createCompanyTable() {
+        if (DBUtils.runQuery(SQLCompanyCommands.CREATE_COMPANY_TABLE)) {
+            System.out.println("Company table created");
+        } else {
+            System.out.println("Error!");
+        }
+    }
+    public void dropCompanyTable() {
+        if (DBUtils.runQuery(SQLCompanyCommands.DROP_COMPANY_TABLE)) {
+            System.out.println("Company table dropped");
+        } else {
+            System.out.println("Error!");
+        }
+    }
     @Override
     public Boolean isCompanyExist(String Email, String Password) throws SQLException {
         Map<Integer,Object> params = new HashMap<>();
@@ -57,6 +71,7 @@ public class CompanyDBDAO implements CompanyDAO {
             String password = results.getString(4);
             ArrayList<Coupon> coupons = new ArrayList<Coupon>();
             myList.add(new Company(id, name, email, password, coupons));
+            Company.counter = id;
         }
         return myList;
     }

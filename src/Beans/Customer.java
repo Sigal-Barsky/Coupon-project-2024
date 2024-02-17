@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Data
 @AllArgsConstructor
 public class Customer {
-    private final Integer costumerID;
+    private Integer costumerID;
     private String first_name;
     private String last_name;
     private String email;

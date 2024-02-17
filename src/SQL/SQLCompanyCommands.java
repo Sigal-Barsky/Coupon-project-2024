@@ -9,8 +9,7 @@ public class SQLCompanyCommands {
                     "  `email` VARCHAR(45) NOT NULL," +
                     "  `password` VARCHAR(45) NOT NULL," +
                     "  PRIMARY KEY (`company_id`)," +
-                    "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE," +
-                    "  UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE);";
+                    "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);";
 
     /**-SQL COMMAND TO: CHECK COMPANY EXISTS-*/
     public static final String isCompanyExist =
@@ -22,12 +21,14 @@ public class SQLCompanyCommands {
             " (`name`, `email`, `password`)" +
             " VALUES ( ?, ?, ?);";
 
-    /**-SQL COMMAND TO: CREATE COMPANY TABLE-*/
-    public static final String deleteCompany= "DELETE FROM companies WHERE company_id=?;";
+    /**-SQL COMMAND TO: DELETE A COMPANY FROM THE DATABASE-*/
+    public static final String deleteCompany= "DELETE FROM `" + DBManager.SQL_DB + "`.`companies` WHERE company_id=?;";
 
     /**-SQL COMMAND TO: GET COMPANIES IN THE DATABASE-*/
-    public static final String getAllCompanies= "SELECT * FROM companies;";
+    public static final String getAllCompanies= "SELECT * FROM `" + DBManager.SQL_DB + "`.`companies`;";
 
     /**-SQL COMMAND TO: GET COMPANY IN THE DATABASE BY ID-*/
-    public static final String getOneCompany= "SELECT * FROM companies WHERE company_id= ?;";
+    public static final String getOneCompany= "SELECT * FROM `" + DBManager.SQL_DB + "`.`companies` WHERE company_id= ?;";
+    /**-SQL COMMAND TO: DROP COMPANY TABLE-*/
+    public static final String DROP_COMPANY_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`companies`;";
 }

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CompanyDAO {
+    void createCompanyTable();
     Boolean isCompanyExist(String Email, String Password) throws SQLException;
     void addCompany(Company company);
     void updateCompany(Company company);

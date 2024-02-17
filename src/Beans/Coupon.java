@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class Coupon {
-    private final Integer couponID;
+    private Integer couponID;
     private Integer companyID;
     private Category categoryID;
     private String title;
