@@ -54,7 +54,7 @@ public class CompanyDBDAO implements CompanyDAO {
     public void deleteCompany(Integer companyID) {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1, companyID);
-        if (DBUtils.runQuery(SQLCompanyCommands.addCompany, params)){
+        if (DBUtils.runQuery(SQLCompanyCommands.deleteCompany, params)){
             System.out.println("Company deleted successfully");
         }
     }
@@ -78,19 +78,19 @@ public class CompanyDBDAO implements CompanyDAO {
 
     @Override
     public Company getOneCompany(Integer companyID) throws SQLException {
-        Company company;
+        Company company = null;
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,companyID);
 
         ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.getOneCompany,params);
-
-        int id = results.getInt(1);
-        String name = results.getString(2);
-        String email = results.getString(3);
-        String password = results.getString(4);
-        ArrayList<Coupon> coupons = new ArrayList<Coupon>();;
-        company = new Company(id, name, email, password, coupons);
-
+        while (results.next()) {
+            int id = results.getInt(1);
+            String name = results.getString(2);
+            String email = results.getString(3);
+            String password = results.getString(4);
+            ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+            company = new Company(id, name, email, password, coupons);
+        }
         return company;
     }
 }

@@ -12,6 +12,8 @@ public class SQLCategoryCommands {
     public static final String addCategory =
             "INSERT INTO `" + DBManager.SQL_DB + "`.`categories` (`name`) VALUES (?);";
 
+    public static final String getOneCategory= "SELECT name FROM `" + DBManager.SQL_DB + "`.`categories` WHERE category_id= ?;";
+
     public static final String DROP_CATEGORY_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`categories`;";
 
 }

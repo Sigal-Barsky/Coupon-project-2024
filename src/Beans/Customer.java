@@ -14,6 +14,14 @@ public class Customer {
     private String email;
     private String password;
     private ArrayList<Coupon> coupons;
+    public static Integer counter = 0;
+
+    public void addToCoupons(Coupon coupon){
+        if (this.coupons == null){
+            this.coupons = new ArrayList<>();
+        }
+        this.coupons.add(coupon);
+    }
 
     @Override
     public String toString() {

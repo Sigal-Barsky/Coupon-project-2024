@@ -3,6 +3,7 @@ package Cls;
 import Beans.Category;
 import Beans.Company;
 import Beans.Coupon;
+import Beans.Customer;
 import DBDAO.CompanyDBDAO;
 import DBDAO.CouponDBDAO;
 import DBDAO.CustomerDBDAO;
@@ -18,14 +19,19 @@ public class Tester {
     private static final CompanyDBDAO companyDBDAO = new CompanyDBDAO();
     private static final CustomerDBDAO customerDBDAO = new CustomerDBDAO();
     private static final CouponDBDAO couponDBDAO = new CouponDBDAO();
-    private static final Company company= new Company(Company.counter+1, "BarSiC", "LS@BarSiC.com","123123", null);
+
+    private static final ArrayList<Company> companies = new ArrayList<>();
+    private static final ArrayList<Customer> customers = new ArrayList<>();
+
     public static void testAll(){
+        companies.add(new Company(Company.counter+1, "BarSiC", "LS@BarSiC.com","123123", null));
+        customers.add(new Customer(Customer.counter+1,"Mila", "Barsky", "BS@gmail.com", "123123", null));
         testDropTable();
         testTableCreation();
 
         testCompany();
         testCoupon();
-        //testDropTable();
+
     }
     private static void testTableCreation(){
         companyDBDAO.createCompanyTable();
@@ -53,21 +59,46 @@ public class Tester {
 
     private static void testCompany(){
         try {
+            companyDBDAO.addCompany(companies.get(0));
             ArrayList<Company> companies = new ArrayList<>();
             companies = companyDBDAO.getAllCompanies();
+            System.out.println(companies.toString() + "test");
+//            Company company = companyDBDAO.getOneCompany(1);
+//            System.out.println(company.toString() + "test");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
+    }
 
-            companyDBDAO.addCompany(company);
+    private static void testCustomer(){
+        try {
+            companyDBDAO.addCompany(companies.get(0));
+            ArrayList<Company> companies = new ArrayList<>();
+            companies = companyDBDAO.getAllCompanies();
+            System.out.println(companies.toString() + "test");
+//            Company company = companyDBDAO.getOneCompany(1);
+//            System.out.println(company.toString() + "test");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
 
     }
     private static void testCoupon(){
+        try {
         Date date1 = new Date(2024,2,17);
         Date date2 = new Date(2024,2,18);
 
         Coupon coupon = new Coupon(1, 1,Category.Grocery, "bs", "just a test", date1, date2, 30, 50.5, "none");
         couponDBDAO.addCoupon(coupon);
+        ArrayList<Coupon> coupons = new ArrayList<>();
+        coupons = couponDBDAO.getAllCoupons();
+        System.out.println(coupons.toString()+ " test");
+//        Coupon coupon = coupons.get(0);
+//        coupon = couponDBDAO.getOneCoupon(coupon.getCouponID());
+//        System.out.println(coupon.toString() + "test");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
