@@ -1,5 +1,6 @@
 package Cls;
 
+import Beans.Category;
 import DBDAO.CompanyDBDAO;
 import DBDAO.CouponDBDAO;
 import DBDAO.CustomerDBDAO;

@@ -4,7 +4,7 @@ public class SQLCouponCommands {
     /**-CREATE COUPON TABLE-*/
     public static final String CREATE_COUPON_TABLE =
             "CREATE TABLE IF NOT EXISTS `" + DBManager.SQL_DB + "`.`coupons` (" +
-                    "  `coupon_id` INT NOT NULL," +
+                    "  `coupon_id` INT NOT NULL AUTO_INCREMENT," +
                     "  `company_id` INT NOT NULL," +
                     "  `category_id` INT NOT NULL," +
                     "  `title` VARCHAR(45) NOT NULL," +
@@ -28,8 +28,10 @@ public class SQLCouponCommands {
                     "    ON DELETE NO ACTION" +
                     "    ON UPDATE NO ACTION);";
 
-    public static final String addCompany =
-            "INSERT INTO `" + DBManager.SQL_DB + "`.`";
+    public static final String addCoupon =
+                    "INSERT INTO `" + DBManager.SQL_DB + "`.`coupons` " +
+                    "(`company_id`, `category_id`, `title`, `description`, `start_date`, `end_date`, `amount`, `price`, `image`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     public static final String DROP_COUPON_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`coupons`;";
 }

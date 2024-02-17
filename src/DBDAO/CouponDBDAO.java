@@ -3,7 +3,6 @@ package DBDAO;
 import Beans.Coupon;
 import Cls.DBUtils;
 import DAO.CouponDAO;
-import SQL.SQLCompanyCommands;
 import SQL.SQLCouponCommands;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class CouponDBDAO implements CouponDAO {
     public void addCoupon(Coupon coupon) {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,coupon.getCompanyID());
-        params.put(2,coupon.getCategoryID());
+        params.put(2,coupon.getCategoryID().ordinal()+1);
         params.put(3,coupon.getTitle());
         params.put(4,coupon.getDescription());
         params.put(5,coupon.getStart_date());
@@ -40,7 +39,7 @@ public class CouponDBDAO implements CouponDAO {
         params.put(7,coupon.getAmount());
         params.put(8,coupon.getPrice());
         params.put(9,coupon.getImage());
-        if (DBUtils.runQuery(SQLCouponCommands.CREATE_COUPON_TABLE, params)){
+        if (DBUtils.runQuery(SQLCouponCommands.addCoupon, params)){
             System.out.println("Coupon added successfully");
         }
     }
