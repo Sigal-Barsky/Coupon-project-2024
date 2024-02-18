@@ -193,6 +193,34 @@ public class CouponDBDAO implements CouponDAO {
     }
 
     @Override
+    public ArrayList<Coupon> getCustomerCoupons(Integer customerID) throws SQLException {
+        ArrayList<Coupon> myList = new ArrayList<>();
+        ArrayList<Integer> couponIDs = getAllCouponIDs(customerID);
+        while (couponIDs.iterator().hasNext()){
+            myList.add(getOneCoupon(couponIDs.iterator().next()));
+        }
+        return myList;
+    }
+    @Override
+    public ArrayList<Coupon> getCustomerCoupons(Integer customerID, Category category) throws SQLException {
+        ArrayList<Coupon> myList = new ArrayList<>();
+        ArrayList<Integer> couponIDs = getAllCouponIDs(customerID);
+        while (couponIDs.iterator().hasNext()){
+            myList.add(getOneCoupon(couponIDs.iterator().next(), category));
+        }
+        return myList;
+    }
+    @Override
+    public ArrayList<Coupon> getCustomerCoupons(Integer customerID, Double maxPrice) throws SQLException {
+        ArrayList<Coupon> myList = new ArrayList<>();
+        ArrayList<Integer> couponIDs = getAllCouponIDs(customerID);
+        while (couponIDs.iterator().hasNext()){
+            myList.add(getOneCoupon(couponIDs.iterator().next(), maxPrice));
+        }
+        return myList;
+    }
+
+    @Override
     public Coupon getOneCoupon(Integer couponID) throws SQLException {
         Coupon coupon = null;
         Map<Integer,Object> params = new HashMap<>();
@@ -216,13 +244,75 @@ public class CouponDBDAO implements CouponDAO {
         return coupon;
     }
 
+    public Coupon getOneCoupon(Integer couponID, Category category) throws SQLException {
+        Coupon coupon = null;
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,couponID);
+        params.put(2,category.ordinal()+1);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.getCouponsByCategory, params);
+        while (results.next()) {
+            int couponId = results.getInt(1);
+            int companyId = results.getInt(2);
+            int categoryId = results.getInt(3);
+            String title = results.getString(4);
+            String description = results.getString(5);
+            Date startDate = results.getDate(6);
+            Date endDate = results.getDate(7);
+            int amount = results.getInt(8);
+            Double price = results.getDouble(9);
+            String image = results.getString(10);
+            coupon = new Coupon(couponId, companyId, Category.values()[categoryId], title, description, startDate, endDate, amount, price, image);
+
+        }
+        return coupon;
+    }
+
+    public Coupon getOneCoupon(Integer couponID, Double maxPrice) throws SQLException {
+        Coupon coupon = null;
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,couponID);
+        params.put(2,maxPrice);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.getCouponsByMaxPrice, params);
+        while (results.next()) {
+            int couponId = results.getInt(1);
+            int companyId = results.getInt(2);
+            int categoryId = results.getInt(3);
+            String title = results.getString(4);
+            String description = results.getString(5);
+            Date startDate = results.getDate(6);
+            Date endDate = results.getDate(7);
+            int amount = results.getInt(8);
+            Double price = results.getDouble(9);
+            String image = results.getString(10);
+            coupon = new Coupon(couponId, companyId, Category.values()[categoryId], title, description, startDate, endDate, amount, price, image);
+
+        }
+        return coupon;
+    }
+
+    @Override
+    public ArrayList<Integer> getAllCouponIDs(Integer customerID) throws SQLException {
+        ArrayList<Integer> myList = new ArrayList<>();
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,customerID);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCusvsCouCommands.getCouponIdByCustomerId, params);
+        while (results.next()){
+            int couponId = results.getInt(1);
+            myList.add(couponId);
+        }
+        return myList;
+    }
+
     @Override
     public void addCouponPurchase(Integer customerID, Integer couponID) {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,customerID);
         params.put(2,couponID);
         if (DBUtils.runQuery(SQLCusvsCouCommands.addCVsC, params)){
-            System.out.println("Customers VS Coupons entry added successfully");
+            System.out.println("Coupon purchased successfully");
         }
     }
 

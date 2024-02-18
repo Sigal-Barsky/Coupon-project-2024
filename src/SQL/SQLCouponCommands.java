@@ -51,6 +51,12 @@ public class SQLCouponCommands {
     public static final String getCompanyCouponsByMaxPrice=
             "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=? AND price<=?;";
 
+    public static final String getCouponsByCategory=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id=? AND category_id=?;";
+
+    public static final String getCouponsByMaxPrice=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id=? AND price<=?;";
+
     public static final String deleteCompanyCoupons=
             "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=?;";
 

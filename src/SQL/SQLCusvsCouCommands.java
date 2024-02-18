@@ -21,6 +21,9 @@ public class SQLCusvsCouCommands {
                     "    ON DELETE NO ACTION" +
                     "    ON UPDATE NO ACTION);";
 
+    public static final String getCouponIdByCustomerId=
+            "SELECT coupon_id FROM `" + DBManager.SQL_DB + "`.`customers_vs_coupons` WHERE customer_id= ?;";
+
     public static final String addCVsC =
             "INSERT INTO `" + DBManager.SQL_DB + "`.`customers_vs_coupons` " +
                     "(`customer_id`, `coupon_id`) VALUES (?, ?);";
