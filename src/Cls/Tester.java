@@ -31,6 +31,7 @@ public class Tester {
 
         testCompany();
         testCoupon();
+        testCustomer();
 
     }
     private static void testTableCreation(){
@@ -73,12 +74,11 @@ public class Tester {
 
     private static void testCustomer(){
         try {
-            companyDBDAO.addCompany(companies.get(0));
-            ArrayList<Company> companies = new ArrayList<>();
-            companies = companyDBDAO.getAllCompanies();
-            System.out.println(companies.toString() + "test");
-//            Company company = companyDBDAO.getOneCompany(1);
-//            System.out.println(company.toString() + "test");
+            customerDBDAO.addCustomer(customers.get(0));
+            ArrayList<Customer> customers = new ArrayList<>();
+            customers = customerDBDAO.getAllCustomers();
+            System.out.println(customers.toString() + "test");
+
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -94,9 +94,9 @@ public class Tester {
         ArrayList<Coupon> coupons = new ArrayList<>();
         coupons = couponDBDAO.getAllCoupons();
         System.out.println(coupons.toString()+ " test");
-//        Coupon coupon = coupons.get(0);
-//        coupon = couponDBDAO.getOneCoupon(coupon.getCouponID());
-//        System.out.println(coupon.toString() + "test");
+        coupon = coupons.get(0);
+        coupon = couponDBDAO.getOneCoupon(coupon.getCouponID());
+        System.out.println(coupon.toString() + "test");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

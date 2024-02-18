@@ -4,8 +4,10 @@ public class SQLCusvsCouCommands {
     /**-CREATE CUSTOMERS_VS_COUPONS TABLE-*/
     public static final String CREATE_CUSTOMERS_VS_COUPONS_TABLE =
             "CREATE TABLE IF NOT EXISTS `" + DBManager.SQL_DB + "`.`customers_vs_coupons` (" +
-                    "`customer_id` INT NOT NULL," +
+                    "  `cvsc_id` INT NOT NULL AUTO_INCREMENT," +
+                    "  `customer_id` INT NOT NULL," +
                     "  `coupon_id` INT NOT NULL," +
+                    "  PRIMARY KEY (`cvsc_id`)," +
                     "  INDEX `customer_fk_idx` (`customer_id` ASC) VISIBLE," +
                     "  INDEX `coupon_fk_idx` (`coupon_id` ASC) VISIBLE," +
                     "  CONSTRAINT `customer_fk`" +
@@ -19,11 +21,14 @@ public class SQLCusvsCouCommands {
                     "    ON DELETE NO ACTION" +
                     "    ON UPDATE NO ACTION);";
 
-    /**-ADD FOREIGN KEY TO CUSTOMERS_VS_COUPONS*/
-    public static final String CUSTOMERS_VS_COUPONS_FOREIGN_KEY =
-            "ALTER TABLE `" + DBManager.SQL_DB + "`.`customers_vs_coupons`" +
-                    "ADD CONSTRAINT FK_customer" +
-                    "FOREIGN KEY (customer_id) REFERENCES customers(customer_id)," +
-                    "ADD CONSTRAINT FK_coupon" +
-                    "FOREIGN KEY (coupon_id) REFERENCES coupons(coupon_id);";
+    public static final String addCVsC =
+            "INSERT INTO `" + DBManager.SQL_DB + "`.`customers_vs_coupons` " +
+                    "(`customer_id`, `coupon_id`) VALUES (?, ?);";
+
+    public static final String deleteCVsC=
+            "DELETE FROM `" + DBManager.SQL_DB + "`.`customers_vs_coupons` WHERE coupon_id=1 AND customer_id=1;";
+
+    public static final String DROP_CUSTOMERS_VS_COUPONS_TABLE =
+            "DROP TABLE `" + DBManager.SQL_DB + "`.`customers_vs_coupons`;";
+
 }

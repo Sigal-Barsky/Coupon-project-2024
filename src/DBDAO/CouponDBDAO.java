@@ -26,13 +26,18 @@ public class CouponDBDAO implements CouponDAO {
             System.out.println("Error!");
         }
         if (DBUtils.runQuery(SQLCusvsCouCommands.CREATE_CUSTOMERS_VS_COUPONS_TABLE)) {
-            System.out.println("Coupon table created");
+            System.out.println("Customers VS Coupons table created");
         } else {
             System.out.println("Error!");
         }
     }
 
     public void dropCouponTable(){
+        if (DBUtils.runQuery(SQLCusvsCouCommands.DROP_CUSTOMERS_VS_COUPONS_TABLE)) {
+            System.out.println("Customers VS Coupons table dropped");
+        } else {
+            System.out.println("Error!");
+        }
         if (DBUtils.runQuery(SQLCouponCommands.DROP_COUPON_TABLE)) {
             System.out.println("Coupon table dropped");
         } else {
@@ -118,11 +123,21 @@ public class CouponDBDAO implements CouponDAO {
 
     @Override
     public void addCouponPurchase(Integer customerID, Integer couponID) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,customerID);
+        params.put(2,couponID);
+        if (DBUtils.runQuery(SQLCusvsCouCommands.addCVsC, params)){
+            System.out.println("Customers VS Coupons entry added successfully");
+        }
     }
 
     @Override
     public void deleteCouponPurchase(Integer customerID, Integer couponID) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,customerID);
+        params.put(2,couponID);
+        if (DBUtils.runQuery(SQLCusvsCouCommands.deleteCVsC, params)){
+            System.out.println("Customers VS Coupons entry deleted successfully");
+        }
     }
 }
