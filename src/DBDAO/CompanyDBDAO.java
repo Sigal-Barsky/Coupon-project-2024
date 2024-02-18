@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class CompanyDBDAO implements CompanyDAO {
+    @Override
     public void createCompanyTable() {
         if (DBUtils.runQuery(SQLCompanyCommands.CREATE_COMPANY_TABLE)) {
             System.out.println("Company table created");
@@ -18,6 +19,7 @@ public class CompanyDBDAO implements CompanyDAO {
             System.out.println("Error!");
         }
     }
+    @Override
     public void dropCompanyTable() {
         if (DBUtils.runQuery(SQLCompanyCommands.DROP_COMPANY_TABLE)) {
             System.out.println("Company table dropped");
@@ -35,19 +37,37 @@ public class CompanyDBDAO implements CompanyDAO {
     }
 
     @Override
+    public Boolean isNameExist(String Name) throws SQLException {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,Name);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
+        return results.getBoolean(1);
+    }
+
+    @Override
+    public Boolean isEmailExist(String Email) throws SQLException {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,Email);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
+        return results.getBoolean(1);
+    }
+
+    @Override
     public void addCompany(Company company) {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,company.getName());
         params.put(2,company.getEmail());
         params.put(3,company.getPassword());
-        if (DBUtils.runQuery(SQLCompanyCommands.addCompany, params)){
-            System.out.println("Company added successfully");
-        }
+        DBUtils.runQuery(SQLCompanyCommands.addCompany, params);
     }
 
     @Override
     public void updateCompany(Company company) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,company.getEmail());
+        params.put(2,company.getPassword());
+        params.put(3,company.getCompanyID());
+        DBUtils.runQuery(SQLCompanyCommands.updateCompany, params);
     }
 
     @Override
@@ -93,4 +113,5 @@ public class CompanyDBDAO implements CompanyDAO {
         }
         return company;
     }
+
 }

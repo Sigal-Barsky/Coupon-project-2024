@@ -1,12 +1,9 @@
 package DBDAO;
 
 import Beans.Category;
-import Beans.Company;
 import Beans.Coupon;
 import Cls.DBUtils;
 import DAO.CouponDAO;
-import SQL.SQLCategoryCommands;
-import SQL.SQLCompanyCommands;
 import SQL.SQLCouponCommands;
 import SQL.SQLCusvsCouCommands;
 
@@ -31,7 +28,7 @@ public class CouponDBDAO implements CouponDAO {
             System.out.println("Error!");
         }
     }
-
+    @Override
     public void dropCouponTable(){
         if (DBUtils.runQuery(SQLCusvsCouCommands.DROP_CUSTOMERS_VS_COUPONS_TABLE)) {
             System.out.println("Customers VS Coupons table dropped");
@@ -72,8 +69,19 @@ public class CouponDBDAO implements CouponDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1, couponID);
         if (DBUtils.runQuery(SQLCouponCommands.deleteCoupon, params)){
-            System.out.println("Company deleted successfully");
+            System.out.println("Coupon deleted successfully");
         }
+    }
+    @Override
+    public void deleteCompanyCoupon(Integer companyID) throws SQLException {
+        ArrayList<Coupon> coupons = getCompanyCoupons(companyID);
+        while (coupons.iterator().hasNext()){
+            Integer couponId = coupons.iterator().next().getCouponID();
+            deleteCouponsPurchaseByID(couponId);
+        }
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1, companyID);
+        DBUtils.runQuery(SQLCouponCommands.deleteCompanyCoupons, params);
     }
 
     @Override
@@ -81,6 +89,28 @@ public class CouponDBDAO implements CouponDAO {
         ArrayList<Coupon> myList = new ArrayList<>();
 
         ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.getAllCoupons);
+        while (results.next()){
+            int couponId = results.getInt(1);
+            int companyId = results.getInt(2);
+            int categoryId = results.getInt(3);
+            String title = results.getString(4);
+            String description = results.getString(5);
+            Date startDate = results.getDate(6);
+            Date endDate = results.getDate(7);
+            int amount = results.getInt(8);
+            Double price = results.getDouble(9);
+            String image = results.getString(10);
+            myList.add(new Coupon(couponId, companyId, Category.values()[categoryId], title, description, startDate, endDate, amount, price, image));
+        }
+        return myList;
+    }
+    @Override
+    public ArrayList<Coupon> getCompanyCoupons(Integer companyID) throws SQLException {
+        ArrayList<Coupon> myList = new ArrayList<>();
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,companyID);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.getCompanyCoupons, params);
         while (results.next()){
             int couponId = results.getInt(1);
             int companyId = results.getInt(2);
@@ -137,6 +167,15 @@ public class CouponDBDAO implements CouponDAO {
         params.put(1,customerID);
         params.put(2,couponID);
         if (DBUtils.runQuery(SQLCusvsCouCommands.deleteCVsC, params)){
+            System.out.println("Customers VS Coupons entry deleted successfully");
+        }
+    }
+
+    @Override
+    public void deleteCouponsPurchaseByID(Integer couponID) {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,couponID);
+        if (DBUtils.runQuery(SQLCusvsCouCommands.deleteCouponsById, params)){
             System.out.println("Customers VS Coupons entry deleted successfully");
         }
     }

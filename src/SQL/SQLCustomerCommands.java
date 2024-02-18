@@ -15,6 +15,10 @@ public class SQLCustomerCommands {
     /**-SQL COMMAND TO: CHECK IF CUSTOMER EXISTS-*/
     public static final String isCustomerExist =
             "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`customers` WHERE email=? AND password=?;";
+
+    public static final String isEmailExist =
+            "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`customers` WHERE email=?;";
+
     /**-SQL COMMAND TO: ADD THE CUSTOMER TO THE DATABASE-*/
     public static final String addCustomer =
             "INSERT INTO `" + DBManager.SQL_DB + "`.`customers`" +

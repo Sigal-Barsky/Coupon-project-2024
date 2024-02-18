@@ -33,11 +33,20 @@ public class SQLCouponCommands {
                     "(`company_id`, `category_id`, `title`, `description`, `start_date`, `end_date`, `amount`, `price`, `image`) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-    public static final String deleteCoupon= "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id=?;";
+    public static final String deleteCoupon=
+            "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id=?;";
+    public static final String getCompanyCoupons=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=?;";
 
-    public static final String getAllCoupons= "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons`;";
+    public static final String deleteCompanyCoupons=
+            "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=?;";
 
-    public static final String getOneCoupon= "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id= ?;";
+    public static final String getAllCoupons=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons`;";
 
-    public static final String DROP_COUPON_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`coupons`;";
+    public static final String getOneCoupon=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id= ?;";
+
+    public static final String DROP_COUPON_TABLE =
+            "DROP TABLE `" + DBManager.SQL_DB + "`.`coupons`;";
 }

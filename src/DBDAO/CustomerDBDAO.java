@@ -4,7 +4,6 @@ import Beans.Coupon;
 import Beans.Customer;
 import Cls.DBUtils;
 import DAO.CustomerDAO;
-import SQL.SQLCompanyCommands;
 import SQL.SQLCustomerCommands;
 
 import java.sql.ResultSet;
@@ -34,6 +33,14 @@ public class CustomerDBDAO implements CustomerDAO {
         params.put(1,Email);
         params.put(2,Password);
         ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.isCustomerExist, params);
+        return results.getBoolean(1);
+    }
+
+    @Override
+    public Boolean isEmailExist(String Email) throws SQLException {
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,Email);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.isEmailExist, params);
         return results.getBoolean(1);
     }
 

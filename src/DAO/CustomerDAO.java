@@ -10,6 +10,9 @@ public interface CustomerDAO {
     void createCustomerTable();
     void dropCustomerTable();
     Boolean isCustomerExist(String Email, String Password) throws SQLException;
+
+    Boolean isEmailExist(String Email) throws SQLException;
+
     void addCustomer(Customer customer);
     void updateCustomer(Customer customer);
     void deleteCustomer(Integer customerID);
