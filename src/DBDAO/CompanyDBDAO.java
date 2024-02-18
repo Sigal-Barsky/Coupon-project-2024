@@ -40,7 +40,7 @@ public class CompanyDBDAO implements CompanyDAO {
     public Boolean isNameExist(String Name) throws SQLException {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,Name);
-        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isNameExist, params);
         return results.getBoolean(1);
     }
 
@@ -48,7 +48,7 @@ public class CompanyDBDAO implements CompanyDAO {
     public Boolean isEmailExist(String Email) throws SQLException {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,Email);
-        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isEmailExist, params);
         return results.getBoolean(1);
     }
 

@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/CompanyAlreadyExists.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/EmailAlreadyExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Beans/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Beans/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAO/CouponDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CouponDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facade/AdminFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/AdminFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/ClientFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/ClientFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facade/CompanyFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/CompanyFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/CustomerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/CustomerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLCusvsCouCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCusvsCouCommands.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708264056921</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update">
+      <option name="closed" value="true" />
+      <created>1708284263800</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1708284263800</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

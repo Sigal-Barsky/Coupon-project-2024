@@ -28,8 +28,11 @@ public class SQLCusvsCouCommands {
     public static final String deleteCVsC=
             "DELETE FROM `" + DBManager.SQL_DB + "`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?;";
 
-    public static final String deleteCouponsById=
+    public static final String deleteCouponsByCoupon =
             "DELETE FROM `" + DBManager.SQL_DB + "`.`customers_vs_coupons` WHERE coupon_id=?;";
+
+    public static final String deleteCouponsByCustomer =
+            "DELETE FROM `" + DBManager.SQL_DB + "`.`customers_vs_coupons` WHERE customer_id=?;";
 
     public static final String DROP_CUSTOMERS_VS_COUPONS_TABLE =
             "DROP TABLE `" + DBManager.SQL_DB + "`.`customers_vs_coupons`;";

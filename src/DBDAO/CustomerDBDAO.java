@@ -4,6 +4,7 @@ import Beans.Coupon;
 import Beans.Customer;
 import Cls.DBUtils;
 import DAO.CustomerDAO;
+import SQL.SQLCompanyCommands;
 import SQL.SQLCustomerCommands;
 
 import java.sql.ResultSet;
@@ -58,7 +59,13 @@ public class CustomerDBDAO implements CustomerDAO {
 
     @Override
     public void updateCustomer(Customer customer) {
-
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,customer.getFirst_name());
+        params.put(2,customer.getLast_name());
+        params.put(3,customer.getEmail());
+        params.put(4,customer.getPassword());
+        params.put(5,customer.getCostumerID());
+        DBUtils.runQuery(SQLCompanyCommands.updateCompany, params);
     }
 
     @Override

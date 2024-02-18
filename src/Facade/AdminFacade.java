@@ -10,6 +10,10 @@ import java.util.Objects;
 
 public class AdminFacade extends ClientFacade {
 
+    public AdminFacade(){
+
+    }
+
     @Override
     public Boolean Login(String email, String password) {
         return Objects.equals(email, "admin@admin.com") && Objects.equals(password, "admin");
@@ -52,19 +56,27 @@ public class AdminFacade extends ClientFacade {
         }
     }
 
-    public void updateCustomer(Customer customer){
-
+    public void updateCustomer(Customer customer) throws SQLException, EmailAlreadyExistException {
+        if (customerDBDAO.isEmailExist(customer.getEmail())){
+            if (Objects.equals(companyDBDAO.getOneCompany(customer.getCostumerID()).getEmail(), customer.getEmail())){
+                customerDBDAO.updateCustomer(customer);
+                System.out.println("Company updated successfully");
+            }else throw new EmailAlreadyExistException();
+        }else {
+            customerDBDAO.updateCustomer(customer);
+        }
     }
 
     public void deleteCustomer(Integer customerID){
-
+        couponDBDAO.deleteCouponsPurchaseByCustomer(customerID);
+        customerDBDAO.deleteCustomer(customerID);
     }
 
-    public void getAllCustomer(){
-
+    public ArrayList<Customer> getAllCustomer() throws SQLException {
+        return customerDBDAO.getAllCustomers();
     }
 
-    public void getOneCustomer(Integer customerID){
-
+    public Customer getOneCustomer(Integer customerID) throws SQLException {
+        return customerDBDAO.getOneCustomer(customerID);
     }
 }

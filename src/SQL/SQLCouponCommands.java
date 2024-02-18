@@ -28,15 +28,28 @@ public class SQLCouponCommands {
                     "    ON DELETE NO ACTION" +
                     "    ON UPDATE NO ACTION);";
 
+    public static final String isCompanyCouponExist =
+            "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`companies` WHERE title=? AND company_id=?;";
+
     public static final String addCoupon =
                     "INSERT INTO `" + DBManager.SQL_DB + "`.`coupons` " +
                     "(`company_id`, `category_id`, `title`, `description`, `start_date`, `end_date`, `amount`, `price`, `image`) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
+    public static final String updateCoupon =
+            "UPDATE `" + DBManager.SQL_DB + "`.`companies` SET category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=? " +
+                    "WHERE coupon_id=?;";
+
     public static final String deleteCoupon=
             "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id=?;";
     public static final String getCompanyCoupons=
             "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=?;";
+
+    public static final String getCompanyCouponsByCategory=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=? AND category_id=?;";
+
+    public static final String getCompanyCouponsByMaxPrice=
+            "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=? AND price<=?;";
 
     public static final String deleteCompanyCoupons=
             "DELETE FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE company_id=?;";

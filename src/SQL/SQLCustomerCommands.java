@@ -24,6 +24,10 @@ public class SQLCustomerCommands {
             "INSERT INTO `" + DBManager.SQL_DB + "`.`customers`" +
             " (`first_name`, `last_name`, `email`, `password`)" +
             " VALUES (?, ?, ?, ?);";
+
+    public static final String updateCustomer =
+            "UPDATE `" + DBManager.SQL_DB + "`.`customers` SET first_name=?, last_name=?, email=?, password=? WHERE customer_id=?;";
+
     /**-SQL COMMAND TO: DELETE A CUSTOMER FROM THE DATABASE-*/
     public static final String deleteCustomer= "DELETE FROM `" + DBManager.SQL_DB + "`.`customers` WHERE customer_id=?;";
     /**-SQL COMMAND TO: GET ALL CUSTOMERS IN THE DATABASE-*/
