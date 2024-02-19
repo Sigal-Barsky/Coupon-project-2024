@@ -10,8 +10,10 @@ import java.util.Objects;
 
 public class AdminFacade extends ClientFacade {
 
-    public AdminFacade(){
-
+    public AdminFacade(String email, String password) throws WrongInfoException {
+        if(!Login(email,password)){
+            throw new WrongInfoException();
+        }
     }
 
     @Override

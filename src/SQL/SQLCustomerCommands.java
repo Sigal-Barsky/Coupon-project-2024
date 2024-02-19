@@ -35,5 +35,7 @@ public class SQLCustomerCommands {
     /**-SQL COMMAND TO: GET CUSTOMER IN THE DATABASE BY ID-*/
     public static final String getOneCustomer= "SELECT * FROM `" + DBManager.SQL_DB + "`.`customers` WHERE customer_id= ?;";
 
+    public static final String getIdByEmail= "SELECT customer_id FROM `" + DBManager.SQL_DB + "`.`customers` WHERE email=?;";
+
     public static final String DROP_CUSTOMER_TABLE = "DROP TABLE `" + DBManager.SQL_DB + "`.`customers`;";
 }

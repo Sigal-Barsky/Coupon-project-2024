@@ -1,5 +1,6 @@
 package DBDAO;
 
+import Beans.Company;
 import Beans.Coupon;
 import Beans.Customer;
 import Cls.DBUtils;
@@ -111,5 +112,16 @@ public class CustomerDBDAO implements CustomerDAO {
         customer = new Customer(id, firstname, lastname, email, password, coupons);
 
         return customer;
+    }
+
+    @Override
+    public Integer getIdByEmail(String email) throws SQLException {
+        Company company = null;
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,email);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.getIdByEmail,params);
+
+        return results.getInt(1);
     }
 }

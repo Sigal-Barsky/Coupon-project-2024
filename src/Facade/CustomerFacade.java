@@ -3,6 +3,7 @@ package Facade;
 import Beans.Category;
 import Beans.Coupon;
 import Beans.Customer;
+import Exeptions.WrongInfoException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,8 +11,10 @@ import java.util.ArrayList;
 public class CustomerFacade extends ClientFacade{
     private final Integer customerID;
 
-    public CustomerFacade(Integer customerID) {
-        this.customerID = customerID;
+    public CustomerFacade(String email, String password) throws WrongInfoException, SQLException {
+        if(Login(email,password)){
+            this.customerID = customerDBDAO.getIdByEmail(email);
+        }else throw new WrongInfoException();
     }
 
     @Override

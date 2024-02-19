@@ -6,7 +6,7 @@ import DBDAO.CustomerDBDAO;
 
 import java.sql.SQLException;
 
-abstract class ClientFacade {
+public abstract class ClientFacade {
     protected CompanyDBDAO companyDBDAO;
     protected CustomerDBDAO customerDBDAO;
     protected CouponDBDAO couponDBDAO;

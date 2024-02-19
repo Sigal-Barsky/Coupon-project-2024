@@ -18,4 +18,6 @@ public interface CustomerDAO {
     void deleteCustomer(Integer customerID);
     ArrayList<Customer> getAllCustomers() throws SQLException;
     Customer getOneCustomer(Integer customerID) throws SQLException;
+
+    Integer getIdByEmail(String email) throws SQLException;
 }

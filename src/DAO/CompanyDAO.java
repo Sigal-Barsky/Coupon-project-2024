@@ -18,4 +18,6 @@ public interface CompanyDAO {
     void deleteCompany(Integer companyID);
     ArrayList<Company> getAllCompanies() throws SQLException;
     Company getOneCompany(Integer companyID) throws SQLException;
+
+    Integer getIdByEmail(String email) throws SQLException;
 }

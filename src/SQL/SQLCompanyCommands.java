@@ -43,6 +43,9 @@ public class SQLCompanyCommands {
     public static final String getOneCompany=
             "SELECT * FROM `" + DBManager.SQL_DB + "`.`companies` WHERE company_id= ?;";
 
+    public static final String getIdByEmail=
+            "SELECT company_id FROM `" + DBManager.SQL_DB + "`.`companies` WHERE email= ?;";
+
     /**-SQL COMMAND TO: DROP COMPANY TABLE-*/
     public static final String DROP_COMPANY_TABLE =
             "DROP TABLE `" + DBManager.SQL_DB + "`.`companies`;";

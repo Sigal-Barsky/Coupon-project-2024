@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class ConnectionPool {
     private static final int NUMBER_OF_CONNECTION=10;
-    public static ConnectionPool instance=null;
+    private static ConnectionPool instance=null;
     private final Stack<Connection> connections = new Stack<>();
     private ConnectionPool() {
         System.out.println("new connection pool instance created");

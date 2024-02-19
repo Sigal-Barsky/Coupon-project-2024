@@ -114,4 +114,15 @@ public class CompanyDBDAO implements CompanyDAO {
         return company;
     }
 
+    @Override
+    public Integer getIdByEmail(String email) throws SQLException {
+        Company company = null;
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,email);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.getIdByEmail,params);
+
+        return results.getInt(1);
+    }
+
 }
