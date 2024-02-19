@@ -29,11 +29,15 @@ public class CompanyDBDAO implements CompanyDAO {
     }
     @Override
     public Boolean isCompanyExist(String Email, String Password) throws SQLException {
-        Map<Integer,Object> params = new HashMap<>();
-        params.put(1,Email);
-        params.put(2,Password);
+        Map<Integer, Object> params = new HashMap<>();
+        params.put(1, Email);
+        params.put(2, Password);
         ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isCompanyExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -41,7 +45,11 @@ public class CompanyDBDAO implements CompanyDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,Name);
         ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isNameExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -49,7 +57,11 @@ public class CompanyDBDAO implements CompanyDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,Email);
         ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.isEmailExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -116,13 +128,15 @@ public class CompanyDBDAO implements CompanyDAO {
 
     @Override
     public Integer getIdByEmail(String email) throws SQLException {
-        Company company = null;
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,email);
 
         ResultSet results = DBUtils.runQueryFroResult(SQLCompanyCommands.getIdByEmail,params);
-
-        return results.getInt(1);
+        Integer ID = null;
+        while (results.next()) {
+            ID = results.getInt(1);
+        }
+        return ID;
     }
 
 }

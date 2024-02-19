@@ -20,11 +20,11 @@ public class AdminFacade extends ClientFacade {
     public Boolean Login(String email, String password) {
         return Objects.equals(email, "admin@admin.com") && Objects.equals(password, "admin");
     }
-    public void AddCompany(Company company) throws SQLException {
+    public void AddCompany(Company company) throws SQLException, AlreadyExistException {
         if (!companyDBDAO.isNameExist(company.getName()) && !companyDBDAO.isEmailExist(company.getEmail())){
             companyDBDAO.addCompany(company);
-            System.out.println("company added successfully");
-        }
+            System.out.println("company: " + company.getName() + " added successfully");
+        }else throw new AlreadyExistException();
     }
 
     public void updateCompany(Company company) throws SQLException, EmailAlreadyExistException {
@@ -51,11 +51,11 @@ public class AdminFacade extends ClientFacade {
         return companyDBDAO.getOneCompany(companyID);
     }
 
-    public void AddCustomer(Customer customer) throws SQLException {
+    public void AddCustomer(Customer customer) throws SQLException, AlreadyExistException {
         if (!customerDBDAO.isEmailExist(customer.getEmail())){
             customerDBDAO.addCustomer(customer);
             System.out.println("company added successfully");
-        }
+        }else throw new AlreadyExistException();
     }
 
     public void updateCustomer(Customer customer) throws SQLException, EmailAlreadyExistException {

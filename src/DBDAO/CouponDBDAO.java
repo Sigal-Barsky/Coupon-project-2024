@@ -48,7 +48,11 @@ public class CouponDBDAO implements CouponDAO {
         params.put(1,Title);
         params.put(2,companyID);
         ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.isCompanyCouponExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -95,8 +99,8 @@ public class CouponDBDAO implements CouponDAO {
     @Override
     public void deleteCompanyCoupon(Integer companyID) throws SQLException {
         ArrayList<Coupon> coupons = getCompanyCoupons(companyID);
-        while (coupons.iterator().hasNext()){
-            Integer couponId = coupons.iterator().next().getCouponID();
+        for (Coupon coupon: coupons){
+            Integer couponId = coupon.getCouponID();
             deleteCouponsPurchaseByCoupon(couponId);
         }
         Map<Integer,Object> params = new HashMap<>();
@@ -346,7 +350,7 @@ public class CouponDBDAO implements CouponDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,customerID);
         if (DBUtils.runQuery(SQLCusvsCouCommands.deleteCouponsByCustomer, params)){
-            System.out.println("Customers VS Coupons entry deleted successfully");
+            System.out.println("Customers Coupons deleted successfully");
         }
     }
 
@@ -355,7 +359,7 @@ public class CouponDBDAO implements CouponDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,couponID);
         if (DBUtils.runQuery(SQLCusvsCouCommands.deleteCouponsByCoupon, params)){
-            System.out.println("Customers VS Coupons entry deleted successfully");
+            System.out.println("Coupons entry deleted successfully");
         }
     }
 }

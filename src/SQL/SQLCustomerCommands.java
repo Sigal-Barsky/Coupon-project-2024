@@ -10,8 +10,7 @@ public class SQLCustomerCommands {
                     "  `email` VARCHAR(45) NOT NULL," +
                     "  `password` VARCHAR(45) NOT NULL," +
                     "  PRIMARY KEY (`customer_id`)," +
-                    "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE," +
-                    "  UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE);";
+                    "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);";
     /**-SQL COMMAND TO: CHECK IF CUSTOMER EXISTS-*/
     public static final String isCustomerExist =
             "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`customers` WHERE email=? AND password=?;";

@@ -4,13 +4,13 @@ public class SQLCompanyCommands {
     /**-SQL COMMAND TO: CREATE COMPANY TABLE-*/
     public static final String CREATE_COMPANY_TABLE =
             "CREATE TABLE IF NOT EXISTS `" + DBManager.SQL_DB + "`.`companies` (" +
-                    "  `company_id` INT NOT NULL AUTO_INCREMENT," +
-                    "  `name` VARCHAR(45) NOT NULL," +
-                    "  `email` VARCHAR(45) NOT NULL," +
-                    "  `password` VARCHAR(45) NOT NULL," +
-                    "  PRIMARY KEY (`company_id`)," +
-                    "  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE),"+
-                    "  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);";
+                    " `company_id` INT NOT NULL AUTO_INCREMENT," +
+                    " `name` VARCHAR(45) NOT NULL," +
+                    " `email` VARCHAR(45) NOT NULL," +
+                    " `password` VARCHAR(45) NOT NULL," +
+                    " PRIMARY KEY (`company_id`)," +
+                    " UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE," +
+                    " UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);";
 
     /**-SQL COMMAND TO: CHECK COMPANY EXISTS-*/
     public static final String isCompanyExist =

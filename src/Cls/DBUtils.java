@@ -13,7 +13,7 @@ public class DBUtils {
             connection = ConnectionPool.getInstance().getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
+            //System.out.println(preparedStatement);
             preparedStatement.execute();
             return true;
         } catch (InterruptedException | SQLException e) {
@@ -50,6 +50,7 @@ public class DBUtils {
                     throw new RuntimeException(e);
                 }
             });
+            //System.out.println(preparedStatement);
             preparedStatement.execute();
             return true;
         } catch (InterruptedException | SQLException e) {
@@ -87,10 +88,12 @@ public class DBUtils {
                 }
             });
 
-            System.out.println(preparedStatement);
+            //System.out.println(preparedStatement);
             return preparedStatement.executeQuery();
         } catch (InterruptedException | SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            ConnectionPool.getInstance().restoreConnection(connection);
         }
     }
     public static ResultSet runQueryFroResult(String sql) {
@@ -101,10 +104,12 @@ public class DBUtils {
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            System.out.println(preparedStatement);
+            //System.out.println(preparedStatement);
             return preparedStatement.executeQuery();
         } catch (InterruptedException | SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            ConnectionPool.getInstance().restoreConnection(connection);
         }
     }
 }

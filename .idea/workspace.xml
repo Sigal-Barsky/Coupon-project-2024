@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/Beans/ClientType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cls/LoginManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/WrongInfoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exeptions/AlreadyExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cls/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cls/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cls/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facade/AdminFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/AdminFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facade/ClientFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/ClientFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/CompanyFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/CompanyFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/CustomerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/CustomerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/ConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Job/CouponExpirationDailyJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Job/CouponExpirationDailyJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
     </list>
@@ -55,7 +53,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -249,7 +247,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708292219933</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <option name="closed" value="true" />
+      <created>1708326362209</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1708326362209</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update">
+      <option name="closed" value="true" />
+      <created>1708331475325</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1708331475325</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,5 +280,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Cls/Tester.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

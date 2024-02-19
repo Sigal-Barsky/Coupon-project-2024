@@ -35,7 +35,11 @@ public class CustomerDBDAO implements CustomerDAO {
         params.put(1,Email);
         params.put(2,Password);
         ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.isCustomerExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -43,7 +47,11 @@ public class CustomerDBDAO implements CustomerDAO {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,Email);
         ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.isEmailExist, params);
-        return results.getBoolean(1);
+        Boolean isExist = null;
+        while (results.next()) {
+            isExist = results.getBoolean(1);
+        }
+        return isExist;
     }
 
     @Override
@@ -66,7 +74,7 @@ public class CustomerDBDAO implements CustomerDAO {
         params.put(3,customer.getEmail());
         params.put(4,customer.getPassword());
         params.put(5,customer.getCostumerID());
-        DBUtils.runQuery(SQLCompanyCommands.updateCompany, params);
+        DBUtils.runQuery(SQLCustomerCommands.updateCustomer, params);
     }
 
     @Override
@@ -97,20 +105,21 @@ public class CustomerDBDAO implements CustomerDAO {
 
     @Override
     public Customer getOneCustomer(Integer customerID) throws SQLException {
-        Customer customer;
+        Customer customer = null;
         Map<Integer,Object> params = new HashMap<>();
         params.put(1,customerID);
 
         ResultSet results = DBUtils.runQueryFroResult(SQLCustomerCommands.getOneCustomer,params);
-
-        int id = results.getInt(1);
-        String firstname = results.getString(2);
-        String lastname = results.getString(3);
-        String email = results.getString(4);
-        String password = results.getString(5);
-        ArrayList<Coupon> coupons = new ArrayList<Coupon>();;
-        customer = new Customer(id, firstname, lastname, email, password, coupons);
-
+        while (results.next()) {
+            int id = results.getInt(1);
+            String firstname = results.getString(2);
+            String lastname = results.getString(3);
+            String email = results.getString(4);
+            String password = results.getString(5);
+            ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+            
+            customer = new Customer(id, firstname, lastname, email, password, coupons);
+        }
         return customer;
     }
 

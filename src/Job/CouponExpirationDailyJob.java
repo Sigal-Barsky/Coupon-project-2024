@@ -7,10 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CouponExpirationDailyJob implements Runnable{
-    private CouponDBDAO couponDBDAO;
-    private Boolean quit = false;
-
+    private final CouponDBDAO couponDBDAO = new CouponDBDAO();
+    private volatile Boolean quit = false;
     private final int TIME = 1000*60*60*24;
+
+    public CouponExpirationDailyJob() {
+    }
+
     @Override
     public void run() {
         while (!quit){
@@ -19,14 +22,18 @@ public class CouponExpirationDailyJob implements Runnable{
                 for (Integer integer:  couponDBDAO.getExpiredCoupons(date)){
                     couponDBDAO.deleteCoupon(integer);
                 }
+                System.out.println("all expired coupons deleted");
                 Thread.sleep(TIME);
-            } catch (SQLException | InterruptedException e) {
+            } catch (SQLException e) {
                 throw new RuntimeException(e);
+            }catch (InterruptedException e){
+                stop();
             }
         }
     }
 
     public void stop() {
+        System.out.println("coupon expiration checking stopped");
         quit = true;
     }
 }
