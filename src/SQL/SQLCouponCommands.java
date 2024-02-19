@@ -29,7 +29,7 @@ public class SQLCouponCommands {
                     "    ON UPDATE NO ACTION);";
 
     public static final String isCompanyCouponExist =
-            "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`companies` WHERE title=? AND company_id=?;";
+            "SELECT count(*) FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE title=? AND company_id=?;";
 
     public static final String addCoupon =
                     "INSERT INTO `" + DBManager.SQL_DB + "`.`coupons` " +
@@ -37,7 +37,7 @@ public class SQLCouponCommands {
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     public static final String updateCoupon =
-            "UPDATE `" + DBManager.SQL_DB + "`.`companies` SET category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=? " +
+            "UPDATE `" + DBManager.SQL_DB + "`.`coupons` SET category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=? " +
                     "WHERE coupon_id=?;";
 
     public static final String deleteCoupon=

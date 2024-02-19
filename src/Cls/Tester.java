@@ -57,9 +57,9 @@ public class Tester {
         customers.add(new Customer(Customer.counter + 1, "Dummy2", "customer", "dummy2@gmail.com", "123123", null));
         Date date1 = Date.valueOf(LocalDate.now());
         Date date2 = Date.valueOf(LocalDate.now().plusDays(1));
-        coupons.add(new Coupon(1, 1, Category.Restaurant, "test1", "none", date1, date2, 10, 50.5, "none"));
-        coupons.add(new Coupon(2, 1, Category.Grocery, "test2", "none", date1, date2, 10, 50.5, "none"));
-        coupons.add(new Coupon(3, 1, Category.Restaurant, "test3", "none", date1, date2, 10, 50.5, "none"));
+        coupons.add(new Coupon(1, 1, Category.Grocery, "test1", "none", date1, date2, 10, 50.5, "none"));
+        coupons.add(new Coupon(2, 1, Category.Restaurant, "test2", "none", date1, date2, 10, 50.5, "none"));
+        coupons.add(new Coupon(3, 1, Category.Grocery, "test3", "none", date1, date2, 10, 50.5, "none"));
     }
 
     private static void testCompany() throws SQLException {
@@ -112,7 +112,7 @@ public class Tester {
             input = scanner.nextLine();
             if (Objects.equals(input, "y")) {
                 Company companyDits = company.getCompanyDetails();
-                System.out.println(company);
+                System.out.println(companyDits);
             }
             }
         }

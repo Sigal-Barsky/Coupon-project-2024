@@ -75,15 +75,15 @@ public class CouponDBDAO implements CouponDAO {
     @Override
     public void updateCoupon(Coupon coupon) {
         Map<Integer,Object> params = new HashMap<>();
-        params.put(1,coupon.getCompanyID());
-        params.put(2,coupon.getCategoryID().ordinal()+1);
-        params.put(3,coupon.getTitle());
-        params.put(4,coupon.getDescription());
-        params.put(5,coupon.getStart_date());
-        params.put(6,coupon.getEnd_date());
-        params.put(7,coupon.getAmount());
-        params.put(8,coupon.getPrice());
-        params.put(9,coupon.getImage());
+        params.put(1,coupon.getCategoryID().ordinal()+1);
+        params.put(2,coupon.getTitle());
+        params.put(3,coupon.getDescription());
+        params.put(4,coupon.getStart_date());
+        params.put(5,coupon.getEnd_date());
+        params.put(6,coupon.getAmount());
+        params.put(7,coupon.getPrice());
+        params.put(8,coupon.getImage());
+        params.put(9,coupon.getCouponID());
         DBUtils.runQuery(SQLCouponCommands.updateCoupon, params);
     }
 
@@ -146,7 +146,7 @@ public class CouponDBDAO implements CouponDAO {
             int amount = results.getInt(8);
             Double price = results.getDouble(9);
             String image = results.getString(10);
-            myList.add(new Coupon(couponId, companyId, Category.values()[categoryId], title, description, startDate, endDate, amount, price, image));
+            myList.add(new Coupon(couponId, companyId, Category.values()[(categoryId-1)], title, description, startDate, endDate, amount, price, image));
         }
         return myList;
     }

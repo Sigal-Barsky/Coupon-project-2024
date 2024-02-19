@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f4d793-5660-4642-85f4-5f5ea45db648" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/AlreadyExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cls/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cls/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cls/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cls/Tester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CompanyDBDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CouponDBDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBDAO/CustomerDBDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/AdminFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/AdminFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade/ClientFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade/ClientFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Job/CouponExpirationDailyJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Job/CouponExpirationDailyJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCompanyCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCustomerCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLCouponCommands.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708331475325</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update">
+      <option name="closed" value="true" />
+      <created>1708345934492</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1708345934492</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,16 +280,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Cls/Tester.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
