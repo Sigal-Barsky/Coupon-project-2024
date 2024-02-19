@@ -46,25 +46,12 @@ public class Tester {
             System.out.println(e.getMessage());
         }
     }
+    private static void testCustomer(){
 
-    private static void innitLists(){
-        companies.add(new Company(Company.counter + 1, "BarSiC", "LS@BarSiC.com", "123123", null));
-        companies.add(new Company(Company.counter + 1, "dummy company1", "d1@dummy.com", "123123", null));
-        companies.add(new Company(Company.counter + 1, "dummy company2", "d2@dummy.com", "123123", null));
-        companies.add(new Company(Company.counter + 1, "dummy company3", "d3@dummy.com", "123123", null));
-        customers.add(new Customer(Customer.counter + 1, "Mila", "Barsky", "SS@gmail.com", "123123", null));
-        customers.add(new Customer(Customer.counter + 1, "Dummy1", "customer", "dummy1@gmail.com", "123123", null));
-        customers.add(new Customer(Customer.counter + 1, "Dummy2", "customer", "dummy2@gmail.com", "123123", null));
-        Date date1 = Date.valueOf(LocalDate.now());
-        Date date2 = Date.valueOf(LocalDate.now().plusDays(1));
-        coupons.add(new Coupon(1, 1, Category.Grocery, "test1", "none", date1, date2, 10, 50.5, "none"));
-        coupons.add(new Coupon(2, 1, Category.Restaurant, "test2", "none", date1, date2, 10, 50.5, "none"));
-        coupons.add(new Coupon(3, 1, Category.Grocery, "test3", "none", date1, date2, 10, 50.5, "none"));
     }
 
     private static void testCompany() throws SQLException {
         System.out.println("now logging into the Company account BarSiC:");
-        //LoginManager loginManager = LoginManager.getInstance();
         CompanyFacade company = (CompanyFacade) loginManager.login(companies.get(0).getEmail(), companies.get(0).getPassword(), ClientType.Company);
         if (company != null) {
             System.out.println("login successful!");
@@ -253,5 +240,19 @@ public class Tester {
         if (DBUtils.runQuery(SQLCategoryCommands.DROP_CATEGORY_TABLE)) {
             System.out.println("Category table dropped");
         }
+    }
+    private static void innitLists(){
+        companies.add(new Company(Company.counter + 1, "BarSiC", "LS@BarSiC.com", "123123", null));
+        companies.add(new Company(Company.counter + 1, "dummy company1", "d1@dummy.com", "123123", null));
+        companies.add(new Company(Company.counter + 1, "dummy company2", "d2@dummy.com", "123123", null));
+        companies.add(new Company(Company.counter + 1, "dummy company3", "d3@dummy.com", "123123", null));
+        customers.add(new Customer(Customer.counter + 1, "Mila", "Barsky", "SS@gmail.com", "123123", null));
+        customers.add(new Customer(Customer.counter + 1, "Dummy1", "customer", "dummy1@gmail.com", "123123", null));
+        customers.add(new Customer(Customer.counter + 1, "Dummy2", "customer", "dummy2@gmail.com", "123123", null));
+        Date date1 = Date.valueOf(LocalDate.now());
+        Date date2 = Date.valueOf(LocalDate.now().plusDays(1));
+        coupons.add(new Coupon(1, 1, Category.Grocery, "test1", "none", date1, date2, 10, 50.5, "none"));
+        coupons.add(new Coupon(2, 1, Category.Restaurant, "test2", "none", date1, date2, 10, 50.5, "none"));
+        coupons.add(new Coupon(3, 1, Category.Grocery, "test3", "none", date1, date2, 10, 50.5, "none"));
     }
 }
