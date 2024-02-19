@@ -87,6 +87,7 @@ public class CouponDBDAO implements CouponDAO {
     public void deleteCoupon(Integer couponID) {
         Map<Integer,Object> params = new HashMap<>();
         params.put(1, couponID);
+        DBUtils.runQuery(SQLCusvsCouCommands.deleteCouponsByCoupon, params);
         if (DBUtils.runQuery(SQLCouponCommands.deleteCoupon, params)){
             System.out.println("Coupon deleted successfully");
         }
@@ -299,6 +300,20 @@ public class CouponDBDAO implements CouponDAO {
         params.put(1,customerID);
 
         ResultSet results = DBUtils.runQueryFroResult(SQLCusvsCouCommands.getCouponIdByCustomerId, params);
+        while (results.next()){
+            int couponId = results.getInt(1);
+            myList.add(couponId);
+        }
+        return myList;
+    }
+
+    @Override
+    public ArrayList<Integer> getExpiredCoupons(Date endDate) throws SQLException {
+        ArrayList<Integer> myList = new ArrayList<>();
+        Map<Integer,Object> params = new HashMap<>();
+        params.put(1,endDate);
+
+        ResultSet results = DBUtils.runQueryFroResult(SQLCouponCommands.getExpiredCoupon, params);
         while (results.next()){
             int couponId = results.getInt(1);
             myList.add(couponId);

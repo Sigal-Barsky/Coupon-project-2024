@@ -3,6 +3,7 @@ package DAO;
 import Beans.Category;
 import Beans.Coupon;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,6 +25,9 @@ public interface CouponDAO {
 
     Coupon getOneCoupon(Integer couponID) throws SQLException;
     ArrayList<Integer> getAllCouponIDs(Integer customerID) throws SQLException;
+
+    ArrayList<Integer> getExpiredCoupons(Date endDate) throws SQLException;
+
     void addCouponPurchase(Integer customerID, Integer couponID);
     void deleteCouponPurchase(Integer customerID, Integer couponID);
     void deleteCouponsPurchaseByCustomer(Integer couponID);

@@ -66,6 +66,9 @@ public class SQLCouponCommands {
     public static final String getOneCoupon=
             "SELECT * FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE coupon_id= ?;";
 
+    public static final String getExpiredCoupon=
+            "SELECT coupon_id FROM `" + DBManager.SQL_DB + "`.`coupons` WHERE end_date<= ?;";
+
     public static final String DROP_COUPON_TABLE =
             "DROP TABLE `" + DBManager.SQL_DB + "`.`coupons`;";
 }
