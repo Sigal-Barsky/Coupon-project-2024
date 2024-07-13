@@ -11,4 +11,6 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     Customer findTopById(Integer custumerId);
 
     Customer findTopByEmail(String email);
+
+    Customer findByEmailAndPassword(String email, String password);
 }

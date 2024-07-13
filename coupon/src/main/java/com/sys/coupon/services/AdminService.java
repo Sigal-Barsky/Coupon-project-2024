@@ -1,6 +1,7 @@
 package com.sys.coupon.services;
 
 import com.sys.coupon.beans.Company;
+import com.sys.coupon.beans.Credentials;
 import com.sys.coupon.beans.Customer;
 import com.sys.coupon.exceptions.CouponSysExp;
 import com.sys.coupon.exceptions.ErrMsg;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +21,11 @@ public class AdminService{
     private final CompanyRepo companyRepo;
     private final CustomerRepo customerRepo;
     private final CouponRepo couponRepo;
+
+    public boolean login(Credentials data){
+        return (Objects.equals(data.getEmail(), "admin@coupons.com") &&
+                Objects.equals(data.getPassword(), "admin"));
+    }
     public void addCompany(Company company) throws CouponSysExp {
         if (company.getId() == null) {
             if (companyRepo.existsByEmail(company.getEmail())){

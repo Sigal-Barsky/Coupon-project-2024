@@ -3,6 +3,7 @@ package com.sys.coupon.services;
 
 import com.sys.coupon.beans.Category;
 import com.sys.coupon.beans.Coupon;
+import com.sys.coupon.beans.Credentials;
 import com.sys.coupon.beans.Customer;
 import com.sys.coupon.exceptions.CouponSysExp;
 import com.sys.coupon.exceptions.ErrMsg;
@@ -41,5 +42,12 @@ public class CustomerService{
 
     public List<Coupon> getCustomerCouponsMaxPrice(Double maxPrice) {
         return null;
+    }
+
+    public Customer login(Credentials data){
+        Customer customer = customerRepo.findByEmailAndPassword(data.getEmail(),data.getPassword());
+        System.out.println("backend data");
+        System.out.println(customer);
+        return customer;
     }
 }

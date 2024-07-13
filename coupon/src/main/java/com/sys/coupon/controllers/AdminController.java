@@ -1,6 +1,7 @@
 package com.sys.coupon.controllers;
 
 import com.sys.coupon.beans.Company;
+import com.sys.coupon.beans.Credentials;
 import com.sys.coupon.beans.Customer;
 import com.sys.coupon.exceptions.CouponSysExp;
 import com.sys.coupon.services.AdminService;
@@ -16,6 +17,12 @@ import java.util.List;
 @CrossOrigin
 public class AdminController extends ClientController{
     private final AdminService adminService;
+
+    @Override
+    @PostMapping("/login")
+    public boolean login(@RequestBody Credentials client){
+        return adminService.login(client);
+    }
 
     @PostMapping("/addCom")
     @ResponseStatus(HttpStatus.CREATED)

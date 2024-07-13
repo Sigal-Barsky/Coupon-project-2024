@@ -1,9 +1,7 @@
 package com.sys.coupon.services;
 
 
-import com.sys.coupon.beans.Category;
-import com.sys.coupon.beans.Company;
-import com.sys.coupon.beans.Coupon;
+import com.sys.coupon.beans.*;
 import com.sys.coupon.exceptions.*;
 import com.sys.coupon.reposetories.CompanyRepo;
 import com.sys.coupon.reposetories.CouponRepo;
@@ -58,5 +56,12 @@ public class CompanyService{
 
     public Company getCompanyDetails(int id) {
         return companyRepo.findTopById(id);
+    }
+
+    public Company login(Credentials data){
+        Company company = companyRepo.findByEmailAndPassword(data.getEmail(),data.getPassword());
+        System.out.println("backend data");
+        System.out.println(company);
+        return company;
     }
 }

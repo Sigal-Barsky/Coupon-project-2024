@@ -1,8 +1,6 @@
 package com.sys.coupon.controllers;
 
-import com.sys.coupon.beans.Category;
-import com.sys.coupon.beans.Company;
-import com.sys.coupon.beans.Coupon;
+import com.sys.coupon.beans.*;
 import com.sys.coupon.exceptions.CouponSysExp;
 import com.sys.coupon.services.CompanyService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +13,15 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/company")
 @CrossOrigin
-public class CompanyController {
+public class CompanyController extends ClientController{
     private final CompanyService companyService;
+
+    @Override
+    @PostMapping("/login")
+    public boolean login(@RequestBody Credentials client){
+        Company company = companyService.login(client);
+        return true;
+    }
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
